@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+</head>
+<body>
+    <h1>Enviar Mensaje al Vendedor</h1>
+    <form action="/send-message" method="POST">
+        <label for="username">Nombre:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="content">Mensaje:</label><br>
+        <textarea id="content" name="content" required></textarea><br><br>
+        
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+
+    <h2>Mensajes Recibidos:</h2>
+    <ul>
+        {{ range . }}
+        <li><strong>{{ .UserName }}:</strong> {{ .Content }}</li>
+        {{ end }}
+    </ul>
+</body>
+</html>
